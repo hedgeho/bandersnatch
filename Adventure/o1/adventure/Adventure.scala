@@ -19,10 +19,10 @@ class Adventure {
 
   val tutorial = new Step(_ => context.descriptions.tutorial, Vector("Understood", "Not really"), tutorial_f)
   def tutorial_f(i: Int): Option[Step] = i match {
-    case 1 =>
+    case 1 =>  // left button
       context.understood = true
-      Some(home)
-    case 2 =>
+      Some(home) // None means game over
+    case 2 =>  // right button
       context.understood = false
       Some(home)
   }
@@ -56,10 +56,10 @@ class Adventure {
   def playTurn(command: String): String = {
     def printDelimiter(options: Vector[String], upper:Boolean): String = {
       var s = if (upper) "┌" else "└"
-      s += "-" * (options(0).length)
+      s += "-" * (options(0).length+2)
       if(options.length > 1) {
         s += (if(upper) "┬" else "┴")
-        s += "-" * (options(1).length)
+        s += "-" * (options(1).length+2)
       }
       s += (if(upper) "┐" else "┘")
       s + "\n"
@@ -76,9 +76,9 @@ class Adventure {
 
     output += printDelimiter(options, true)
 
-    output += "|" + options(0).toUpperCase + "|"
+    output += "| " + options(0).toUpperCase + " |"
     if(options.length > 1)
-      output += options(1).toUpperCase + "|"
+      output += " " + options(1).toUpperCase + " |"
 
     output += "\n"
 
