@@ -3,11 +3,10 @@ package bandersnatch
 import bandersnatch.VarsIO.{get_var, set_var}
 
 object context {
-  val character_name: String = get_var("username")
-  var restaurant = "Dipoli"
+  lazy val character_name: String = get_var("username")
   var bolognese_variant = 1
   var restart_mode = 0
-  var typing_delay = 0  // ms, 200 is good enough
+  var typing_delay = 150  // ms, 200 is good enough
   var boss_name = "MEGAGOOSE"
 
   var colin_hint = false
