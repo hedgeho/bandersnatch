@@ -1,0 +1,5 @@
+username=Stefan
+endings_visited=0
+new=1
+ate_meat=0
+colin_conversation_count=0
